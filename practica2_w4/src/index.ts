@@ -1,7 +1,5 @@
 //================================== CREAR CANCHA ============================================
 
-import { ImportsNotUsedAsValues } from "typescript";
-
 // import { AppDataSource } from "./data-source";
 // import { crearCancha } from "./fuctions/crear_cancha";
 
