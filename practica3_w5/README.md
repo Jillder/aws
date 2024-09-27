@@ -1,7 +1,15 @@
-# Awesome Project Build with TypeORM
+Que hay profe
 
-Steps to run this project:
+![get](./SS_pruebas/get.png)
 
-1. Run `npm i` command
-2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
+![get con id](./SS_pruebas/get_id.png)
+
+![post](./SS_pruebas/post.png)
+
+![post con relaciones](./SS_pruebas/post_relaciones.png)
+
+![patch con relaciones](./SS_pruebas/patch.png)
+
+![delete](./SS_pruebas/delete.png)
+
+

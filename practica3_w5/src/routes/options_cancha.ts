@@ -36,16 +36,20 @@ routercancha.post('/', async (req, res) => {
 });
 
 
-routercancha.put('/:id', async (req, res) => {
+routercancha.patch('/:id', async (req, res) => {
   const { id } = req.params;
   const { descripcion } = req.body;
-  let cambio = await canchaRepository.findOne(id);
+  let cambio = await canchaRepository.findOne({
+    where: { id: id },
+  });
   if (cambio) {
-    cambio.descripcion = descripcion;
+    if (descripcion !== undefined) {
+      cambio.descripcion = descripcion;
+    }
     await canchaRepository.save(cambio);
     res.json(cambio);
   } else {
-    res.status(404).json({ message: "Option not found" });
+    res.status(404).json({ message: "No se escontro la cancha" });
   }
 });
 

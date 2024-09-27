@@ -10,7 +10,7 @@ export class cancha {
     @Column()
     descripcion: string
 
-    @OneToMany(() => reserva, reserva => reserva.canchaId)
+    @OneToMany(() => reserva, reserva => reserva.cancha)
     reservas: reserva[];
 
 }

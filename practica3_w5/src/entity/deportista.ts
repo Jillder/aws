@@ -16,6 +16,6 @@ export class deportista {
     @Column()
     equipo: string
 
-    @OneToMany(() => reserva, reserva => reserva.deportistasId)
+    @OneToMany(() => reserva, reserva => reserva.deportistas)
     reservas: reserva[]
 }
