@@ -6,7 +6,7 @@ import { deportista } from '../entity/deportista';
 import { In } from 'typeorm';
 
 const routerreserva = Router();
-const reservaRepository = AppDataSource.getRepository(reserva);
+export const reservaRepository = AppDataSource.getRepository(reserva);
 const canchaRepository = AppDataSource.getRepository(cancha);
 const deportistaRepository = AppDataSource.getRepository(deportista);
 
@@ -43,14 +43,11 @@ routerreserva.post('/', async (req, res) => {
         const cancha = await canchaRepository.findOne({
             where: { id: idCancha },
         });
+
         const deportistas = await deportistaRepository.findBy({ id: In(idDeportistas) });
 
-        if (!cancha) {
-            return res.status(404).json({ message: "Cancha no encontrada." });
-        }
-
-        if (deportistas.length !== idDeportistas.length) {
-            return res.status(404).json({ message: "Deportista no encontrado." });
+        if (deportistas.length !== idDeportistas.length || !cancha) {
+            return res.status(404).json({ message: "Deportista o cancha no encontrado." });
         }
 
         const reservaNueva = await reservaRepository.save({
@@ -94,7 +91,7 @@ routerreserva.patch('/:id', async (req, res) => {
         if (idCancha) {
             const cancha = await canchaRepository.findOne({where: {id: idCancha}});
             if (!cancha) {
-                return res.status(404).json({ message: "Cancha no encontrada." });
+                return res.status(404).json({ message: "Cancha no encontradaa." });
             }
             reserva.cancha = cancha;
         }

@@ -1,7 +1,3 @@
-# Awesome Project Build with TypeORM
+Que hubo
 
-Steps to run this project:
-
-1. Run `npm i` command
-2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
+![Test](./SS_test/Captura%20de%20pantalla%202024-10-06%20160053.png)

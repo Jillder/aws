@@ -18,15 +18,15 @@ routerusuario.post('/', async (req, res) => {
         const usuarioExistente = await usuarioRepository.findOneBy({ nombre });
         if (usuarioExistente) {
             return res.status(400).json({ message: "El usuario ya existe." });
-        }else {
+        }else { 
             const salt = await bcrypt.genSalt(10);
             const claveHash = await bcrypt.hash(clave, salt);
             const usuarioNuevo = usuarioRepository.create({ nombre, clave: claveHash, estado });
             await usuarioRepository.save(usuarioNuevo);
-            return res.status(201).json(usuarioNuevo);
+            return res.status(201).json({message: "Usuario creado con exito."});
         }
     } catch (error) {
-        console.error(error);
+        console.error("Error al crear el usuario:", error);
         res.status(500).json({ message: "Error al crear el usuario." });
     }
 });
@@ -46,6 +46,10 @@ routerusuario.post('/token', async (req, res) => {
     const verify_password = await bcrypt.compare(clave, usuarioExistente.clave);
     if (!verify_password) {
         return res.status(400).json({ message: "Contraseña incorrecta." });
+    }
+
+    if (usuarioExistente.estado === "inactivo") {
+        return res.status(400).json({ message: "Usuario inactivo." });
     }
 
     const payload = {

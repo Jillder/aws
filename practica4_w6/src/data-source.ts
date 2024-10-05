@@ -11,10 +11,10 @@ export const AppDataSource = new DataSource({
     port: 3306,
     username: "root",
     password: "",
-    database: "practica_w4",
+    database: "test_asw",
     synchronize: true,
     logging: false,
-    entities: [cancha, deportista, reserva, usuario],
+    entities: [ usuario],
     migrations: [],
     subscribers: [],
 })
