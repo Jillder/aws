@@ -1,0 +1,32 @@
+{
+   "name": "practica2_w4",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "dev": "tsnd --respawn --clear src/app.ts",
+      "build": "rimraf ./dist && tsc",
+      "start": "ts-node src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+      "@types/node": "^16.11.10",
+      "drizzle-kit": "^0.24.2",
+      "rimraf": "^6.0.1",
+      "ts-node": "^10.9.2",
+      "ts-node-dev": "^2.0.0",
+      "typescript": "^5.6.2"
+   },
+   "dependencies": {
+      "@planetscale/database": "^1.19.0",
+      "drizzle-orm": "^0.30.9",
+      "mysql": "^2.18.1",
+      "mysql2": "^3.9.7",
+      "pg": "^8.4.0",
+      "reflect-metadata": "^0.2.2",
+      "typeorm": "0.3.20"
+   }
+}
