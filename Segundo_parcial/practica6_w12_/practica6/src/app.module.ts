@@ -1,6 +1,10 @@
 import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
+import { Type } from 'class-transformer';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CanchasModule } from './canchas/canchas.module';
+import { DeportistasModule } from './deportistas/deportistas.module';
+import { ReservasModule } from './reservas/reservas.module';
 
 @Module({
   imports: [UsersModule,
@@ -10,11 +14,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       port: 3306,
       username: 'root',
       password: '',
-      database: 'practica6',
-      entities: [],
+      database: 'asw_segundo_parcial',
       synchronize: true,
       autoLoadEntities: true,
-    })
+    }),
+    CanchasModule,
+    DeportistasModule,
+    ReservasModule,
   ],
   controllers: [],
   providers: [],
