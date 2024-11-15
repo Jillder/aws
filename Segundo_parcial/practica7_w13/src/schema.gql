@@ -1,0 +1,147 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Cancha {
+  """ID de la cancha"""
+  id: Int!
+
+  """Descripción de la cancha"""
+  descripcion: String!
+}
+
+type Deportista {
+  """ID del deportista"""
+  id: Int!
+
+  """Nombre del deportista"""
+  nombre: String!
+
+  """Identificación del deportista"""
+  identificacion: String!
+
+  """Equipo del deportista"""
+  equipo: String!
+}
+
+type SeparacionCancha {
+  """ID de la separación"""
+  id: Int!
+
+  """ID de la cancha asociada"""
+  idCancha: Int!
+
+  """ID del deportista asociado"""
+  idDeportista: Int!
+
+  """Fecha de la separación"""
+  fechaSeparacion: String!
+
+  """Hora de inicio de la separación"""
+  horaDesde: String!
+
+  """Hora de finalización de la separación"""
+  horaHasta: String!
+
+  """Cancha asociada a la separación"""
+  cancha: Cancha!
+
+  """Deportista asociado a la separación"""
+  deportista: Deportista!
+}
+
+type Query {
+  canchas: [Cancha!]!
+  cancha(id: Int!): Cancha!
+  deportistas: [Deportista!]!
+  deportista(id: Int!): Deportista!
+  separacioncanchas: [SeparacionCancha!]!
+  separacioncancha(id: Int!): SeparacionCancha!
+}
+
+type Mutation {
+  createCancha(createCanchaInput: CreateCanchaInput!): Cancha!
+  updateCancha(updateCanchaInput: UpdateCanchaInput!): Cancha!
+  removeCancha(id: Int!): Cancha!
+  createDeportista(createDeportistaInput: CreateDeportistaInput!): Deportista!
+  updateDeportista(updateDeportistaInput: UpdateDeportistaInput!): Deportista!
+  removeDeportista(id: Int!): Deportista!
+  createSeparacioncancha(createSeparacioncanchaInput: CreateSeparacionCanchaInput!): SeparacionCancha!
+  updateSeparacioncancha(updateSeparacioncanchaInput: UpdateSeparacionCanchaInput!): SeparacionCancha!
+  removeSeparacioncancha(id: Int!): SeparacionCancha!
+}
+
+input CreateCanchaInput {
+  """Descripción de la cancha"""
+  descripcion: String!
+}
+
+input UpdateCanchaInput {
+  """Descripción de la cancha"""
+  descripcion: String
+
+  """ID de la cancha a actualizar"""
+  id: Int!
+}
+
+input CreateDeportistaInput {
+  """Nombre del deportista"""
+  nombre: String!
+
+  """Identificación del deportista"""
+  identificacion: String!
+
+  """Equipo del deportista"""
+  equipo: String!
+}
+
+input UpdateDeportistaInput {
+  """Nombre del deportista"""
+  nombre: String
+
+  """Identificación del deportista"""
+  identificacion: String
+
+  """Equipo del deportista"""
+  equipo: String
+
+  """ID de la deporte a actualizar"""
+  id: Int!
+}
+
+input CreateSeparacionCanchaInput {
+  """ID de la cancha asociada"""
+  idCancha: Int!
+
+  """ID del deportista asociado"""
+  idDeportista: Int!
+
+  """Fecha de la separación"""
+  fechaSeparacion: String!
+
+  """Hora de inicio de la separación"""
+  horaDesde: String!
+
+  """Hora de finalización de la separación"""
+  horaHasta: String!
+}
+
+input UpdateSeparacionCanchaInput {
+  """ID de la cancha asociada"""
+  idCancha: Int
+
+  """ID del deportista asociado"""
+  idDeportista: Int
+
+  """Fecha de la separación"""
+  fechaSeparacion: String
+
+  """Hora de inicio de la separación"""
+  horaDesde: String
+
+  """Hora de finalización de la separación"""
+  horaHasta: String
+
+  """ID de la separacion a actualizar"""
+  id: Int!
+}
